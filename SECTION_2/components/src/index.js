@@ -1,25 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import faker from 'faker';
+import CommentDetail from './CommentDetail'
 
 const App = () => {
     return (
+        // Semantic-UI Comment outline
         <div className="ui container comments">
-            <div className="comment">
-                <a href="/" className="avatar">
-                    {/* Reference faker library for avatar image */}
-                    <img alt="avatar" src={faker.image.avatar()}/>
-                </a>
-                <div className="content">
-                    <a href="/" className="author">
-                        Brendan
-                    </a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00PM</span>
-                    </div>
-                    <div className="text">Nice Blog Post!</div>
-                </div>
-            </div>
+            <CommentDetail author="Brendan" timeAgo="Today at 4:45PM" comment="I like you" image={faker.image.avatar()}/>
+            <CommentDetail author="Adam" timeAgo="Today at 3:45PM" comment="I hate you" image={faker.image.avatar()}/>
+            <CommentDetail author="Davis" timeAgo="Today at 2:45PM" comment="I dig you" image={faker.image.avatar()}/>
         </div>
     );
 };
