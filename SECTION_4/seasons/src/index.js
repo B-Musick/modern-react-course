@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay'
+import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 class App extends React.Component {
     // constructor(props){
@@ -35,25 +36,35 @@ class App extends React.Component {
         );
     };
 
-    componentDidUpdate() {
-        console.log('My component did update')
-    }
-    render() {
+    renderContent() {
         // Render is required for every component otherwise get error
         // Error will be shown if error occurs, update state
         // Conditional rendering
-        if(this.state.errorMessage && !this.state.lat){
+        if (this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>
         }
-        if(!this.state.errorMessage && this.state.lat){
+        if (!this.state.errorMessage && this.state.lat) {
             // Take property from state, and pass it to the SeasonDisplay component to 
             // display it
-            return <SeasonDisplay lat={this.state.lat}/>
+            return <SeasonDisplay lat={this.state.lat} />;
         }
-        
-        return <div>Loading!</div>
-        
+
+        return <Spinner message="Please accept location request" />;
+
+
+    };
+   
+    render() {
+        // Content is centralized so can have a border red, instead of adding to each 
+        // condition separately
+        return (
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        )
+
     }
+
 }
 
 ReactDOM.render(
