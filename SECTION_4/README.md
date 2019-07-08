@@ -62,7 +62,20 @@ getSeason(lat, month)
 - Check if between months 2-9 (Feb - Sep), if latitude is  > 0 then it will be summer and
 - if 0 > then it will be winter
 
+REFACTOR
+- Add a configuration object when accessing the text and icon, instead of using a bunch of ternary operators, etc.
+
+SRC/SEASONDISPLAY.CSS
+- Import to component file
+- Change icon sizes
+- Change background colors
+
+SPINNER COMPONENT
+- Use this to show when the page is loading
+- Most projects use this
+
 SEMANTIC-UI
 - Use Icon for the sun and snowflake images
 - Use i tag with class icon and the name of icon we want to use
 - <i class='icon iconname'>
+- Create Spinner
