@@ -23,3 +23,14 @@ WHAT HAPPENS IN BROWSER
 - App return JSX, gets rendered to page as HTML
 - Get result of geolocation (this is why using class components is used, so we can wait for success of the geolocation)
 - Want to tell the compnent to rerender itself with this new information
+
+STATE
+- State of APP is the latitude
+
+FLOW
+- JS file loaded to browser --> Instance of App component made --> Constructor function called --> state object is made and this.state set --> call geolocation service (callback for position only called when get location --> React calls render() --> App returns JSX and is rendered as HTML --> Get gelocation --> we update our state with call 'this.setState' --> React sees we updated state of component --> React calls render() a second time --> render method returns updated JSX --> React takes JSX and updates content on screen
+
+RENDER SCENARIOS
+- If have latitude then show latitude
+- If no latitude then show error
+- While loading the location, want to show loading
