@@ -4,11 +4,11 @@ import SearchBar from './SearchBar';
 
 class App extends React.Component{
 
-    onSearchSubmit(term){
+    async onSearchSubmit(term){
         // Pass this into the SearchBar Component which is called in render()
         // In the SearchBar Component it will be called in the 'onFormSubmit' method
         // When form submitted the term is passed into here and called
-        axios.get('https://api.unsplash.com/search/photos', {
+        const response = await axios.get('https://api.unsplash.com/search/photos', {
             params: {
                 // Query string parameters we want to add
                 query: term
@@ -19,7 +19,7 @@ class App extends React.Component{
             }
             // Unsplash will send back JSON file with a bunch of photos
         });
-
+        console.log(response.data.results);
     }
 
     render(){
